@@ -1,0 +1,46 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+      <div class="container">
+    <p>5 Day Forecast</p>
+</div>
+<div class="container-fluid main">
+  
+<body ng-app="app" ng-controller="WeatherCtrl">
+  <div class="col-md-1 littleGuy">
+    <p>{{ 2+2 }}</p>
+  </div>
+  <div class="col-md-1 medGuy">
+      <div class="col-md-8">
+        <div class="input-group search-bar">
+          <input type="text" ng-model="search" ng-model-options="{ debounce: 800 }" onclick="select()" class="form-control" placeholder="Enter Zip Code" autofocus />
+          <span class="input-group-addon bar-style"><i class="glyphicon glyphicon-search"></i></span>
+        </div>
+
+        <div class="col-md-8">
+        <p>placeholder</p>
+          <div ng-if="!weatherResult">
+            <p>Loading results...</p>
+          </div>
+
+          <div ng-if="weatherResult.response==='True'">
+
+            <span class="span-outer">
+              <p>{{ weatherResult }}</p>
+              <p>{{ $scope.weatherResult }}</p>
+            </span> 
+
+            <p class="outer-p">
+              <div class="inner-p">
+                <span class="label label-primary">Temperature :</span> {{ details.list.dt }}
+              </div>
+            </p>
+
+          </div>
+
+          <div ng-if="weatherResult.response==='False'">
+            <p style="color:blue">No results found.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
+
